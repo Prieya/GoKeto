@@ -1,0 +1,284 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: yellow;
+  position: absolute;
+}
+.contain-slide-image {
+  z-index: 1;
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+.upper-navbar {
+  top: 0px;
+  z-index: 5;
+  position: absolute;
+}
+.container {
+  position: relative;
+  display: grid;
+  grid-row: auto;
+  grid-gap: 100px 50px;
+  align-content: end;
+}
+.slideImage {
+  position: relative;
+  transform: translate3d(0px, -25.1701px, 0px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  height: auto;
+  width: 100%;
+  filter: none;
+}
+
+.image-container {
+  display: grid;
+  grid-row: auto;
+  grid-gap: 10px 9px;
+  justify-content: center;
+}
+.images {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 20px 40px;
+  justify-content: space-around;
+}
+.image {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  background-color: transparent;
+  text-align: center;
+}
+img {
+  width: 100%;
+  height: 550px;
+}
+.active {
+  background-color: #717171;
+}
+.food-image {
+  opacity: 1;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  backface-visibility: hidden;
+}
+.image_text {
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+/* element with class name container show-nav */
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  /* position this relative so we can position the buttons inside absolute. */
+  position: relative;
+  transition: transform 0.5s linear;
+}
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background-color: transparent;
+  border: 0;
+  font-size: 26px;
+  color: white;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+  margin-bottom: 50px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: white;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  /* since we want the transform to come in smoothly
+     we add a transition on the transform property.*/
+  transition: transfrom 0.4s ease-in;
+}
+/* the li after the initial two li */
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav ul li + li + li + li {
+  margin-left: 45px;
+  transform: translateX(-250%);
+}
+
+nav ul li + li + li + li + li {
+  margin-left: 60px;
+  transform: translateX(-300%);
+}
+
+nav ul li i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* the li after the initial li */
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+/* when the container has show-nav 
+  then we want to take the nav's li(s) bring them into view */
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+footer {
+  display: inline-block;
+  width: 100%;
+  margin: 4px;
+  padding: 0px;
+  text-align: center;
+  background-color: #333;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 0px 10px;
+  padding-top: 0px;
+  padding: 5px;
+}
+.footer-ul {
+  font-size: 15px;
+  list-style-type: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #dddddd;
+}
+
+#logo {
+  font-size: 50px;
+  text-decoration: underline;
+  padding: 2px;
+  color: #dddddd;
+}
+.footer-p {
+  height: 2px;
+  padding: 0px;
+  color: #dddddd;
+  text-align: center;
+  font: 12px;
+}
+a {
+  color: gray;
+}
+.Head-Ul {
+  text-decoration: underline;
+  color: gray;
+}
+
+.recipe-ingrediant-image {
+  /* The image used */
+  background-image: url("Image/ketoFatHeadPizza.jpeg");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+label {
+  font-size: 25px;
+}
