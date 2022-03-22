@@ -1,0 +1,120 @@
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+    margin-bottom: 80px;
+  }
+  
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+  }
+  
+nav ul li {
+    text-transform: uppercase;
+    color: white;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    /* since we want the transform to come in smoothly
+     we add a transition on the transform property.*/
+    transition: transfrom 0.4s ease-in;
+  
+}
+  
+nav ul li i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  /* the li after the initial li */
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+  }
+  
+  /* the li after the initial two li */
+nav ul li + li + li{
+    margin-left: 30px;
+    transform: translateX(-200%);
+  }
+  
+nav ul li + li + li + li{
+    margin-left: 45px;
+    transform: translateX(-250%);
+  }
+  
+nav ul li + li + li + li + li{
+    margin-left: 60px;
+    transform: translateX(-300%);
+  }
+
+ /* element with class name container show-nav rotate -20 degree */
+.container.show-nav {
+    transform:rotate(-35deg);
+    }
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+
+/* when the container has show-nav 
+then we want to take the nav's li(s) bring them into view */
+.container.show-nav + nav li{
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+.circle-container {
+  position:fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  /* position this relative so we can position the buttons inside absolute. */
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background-color: transparent;
+  border: 0;
+  font-size: 26px;
+  color: white;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left:60%
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+
+#nav-links {
+  font-size: 15px;
+  list-style-type: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #dddddd;
+}
+    

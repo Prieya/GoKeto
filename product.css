@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.mainimage {
+  background-image: url(https://t4.ftcdn.net/jpg/03/20/68/71/360_F_320687108_3UZ13l44Ob5cel208W7DaRnD5BR9DfY7.jpg);  
+  background-size: cover;  
+  background-position: center;
+  height: 450px;   
+}
+
+.section-header {
+  font-family: "Metal Mania";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 5em;
+}
+
+.shop-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.shop-item-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.shop-item-image {
+  height: 100px;  
+}
+
+
+.shop-item-details {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.shop-item {
+  margin: 10px
+}
+
+.shop-item-price {
+  flex-grow: 1;
+  color: #333;
+}
+
+.btn {
+  text-align: center;
+  vertical-align: middle;
+  padding: .67em .67em;
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #56CCF2;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #2D9CDB;
+}
+
+.btn-purchase {
+  display: block;
+  margin: 40px auto 80px auto;
+  font-size: 1.75em;
+}
+
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #333;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cart-row {
+  display: flex;
+}
+
+.cart-item {
+  width: 45%;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.cart-item-title {
+  color: #333;
+  margin-left: .5em;
+  font-size: 1.2em;
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #56CCF2;
+  background-color: #eee;
+  color: #333;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+}
+
+.cart-row:last-child {
+  border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+  border: none;
+}
+
+.cart-total {
+  text-align: end;
+  margin-top: 10px;
+  margin-right: 250px;
+}
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+  margin-right: 100px;
+}
+
+.cart-total-price {
+  color: #333;
+  font-size: 1.1em;
+}
+
+
+
+
+
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222;
+  /* only hide the scroll bar on x-axis */
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: #fafafa;
+  transform-origin: top left;
+  /* add a animation on the transition, if we don't want just instant change*/
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 10vh;
+  padding: 50px;
+
+}
+
+/* element with class name container show-nav */
+.container.show-nav {
+transform:rotate(-20deg);
+}
+
+.circle-container {
+  position:fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  /* position this relative so we can position the buttons inside absolute. */
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background-color: transparent;
+  border: 0;
+  font-size: 26px;
+  color: white;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left:60%
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+/* when the container has show-nav 
+then we want to take the nav's li(s) bring them into view */
+.container.show-nav + nav li{
+transform: translateX(0);
+transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+  margin-bottom: 50px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: white;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  /* since we want the transform to come in smoothly
+   we add a transition on the transform property.*/
+  transition: transfrom 0.4s ease-in;
+
+}
+
+nav ul li i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* the li after the initial li */
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+/* the li after the initial two li */
+nav ul li + li + li{
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav ul li + li + li + li{
+  margin-left: 45px;
+  transform: translateX(-250%);
+}
+
+nav ul li + li + li + li + li{
+  margin-left: 60px;
+  transform: translateX(-300%);
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  background-color: #ff7979;
+  margin: 0;
+  width: 100%;
+  padding: 40px 0;
+  
+}
+
+.footer-container > h1 {
+    color: white;
+  }
+  
+  footer {
+    display: inline-block;
+    width: 100%;
+    margin: 4px;
+    padding: 0px;
+    text-align: center;
+    background-color: #333;
+  }
+  .footer-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0px 10px;
+    padding-top: 0px;
+    padding: 5px;
+  }
+  ul {
+    font-size: 15px;
+    list-style-type: none;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: #dddddd;
+  }
+  
+  #logo {
+    font-size: 50px;
+    text-decoration: underline;
+    padding: 2px;
+    color: #dddddd;
+  }
+  .footer-p {
+    height: 2px;
+    padding: 0px;
+    color: #dddddd;
+    text-align: center;
+    font: 12px;
+  }
+  a {
+    color: gray;
+  }

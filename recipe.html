@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- HEAD -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="recipe.css" />
+    <link rel="stylesheet" href="nav.css" /> 
+    <title>Recipe</title>
+  </head>
+<!-- BODY -->
+  <body>
+    <div class="container">
+        <div class="circle-container">
+          <div class="circle">
+            <button id="close">
+              <i class="fas fa-times"></i>
+            </button>
+            <button id="open">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      
+      <div class="contain-slide-image"  id="loadImage">
+        <!--Slide image-->
+        <div class="image fade">
+          <img class="slideImage" src="https://i.dietdoctor.com/wp-content/uploads/2015/08/low_carb_bacon_cheeseburger_wraps_v.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop" />
+        </div>
+
+        <div class="image fade">
+          <img class="slideImage" src="https://i.dietdoctor.com/wp-content/uploads/2020/07/Asian-chicken-stir-fry-with-spicy-mayo-h.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop" />
+        </div>
+        <div class="image fade">
+          <img class="slideImage" src="https://i.dietdoctor.com/wp-content/uploads/2020/02/Low-carb-Zoodle-Pesto-Chicken-Salad-h-lighter.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop" />
+        </div>
+
+        <div class="image fade">
+          <img class="slideImage" src="https://i.dietdoctor.com/wp-content/uploads/2021/03/Steak-bite-salad-h.jpg?auto=compress%2Cformat&w=1600&h=1015&fit=crop" />
+        </div>
+      </div>
+       <!--Meal Type 1-->
+      <div class="wrapper">
+        <div class="meal_choice_wrapper">
+
+          <h4 class="meal_header">Meal Type</h4>
+          <hr
+            style="
+              width: 60%;
+              text-align: left;
+              margin-left: 0px;
+              margin-top: -5px;
+            "
+          />
+          <table>
+            <tr class="meal">
+              <td>
+                <label for="breakfast" class="meal_text"> Breakfast </label>
+              </td>
+              <td>
+                <input onClick = "clickElement(this.id)" type="checkbox" name="breakfast" id="breakfast"/>
+              </td>
+             </tr>
+
+            <tr class="meal">
+              <td>
+                <label for="snack" class="meal_text">Snack</label>
+              </td>
+              <td>
+                <input onClick = "clickElement(this.id)" type="checkbox" name="snack" id="snack"/>
+              </td>
+            </tr>
+
+            <tr class="meal">
+              <td>
+                <label for="vegan" class="meal_text">Vegan</label>
+              </td>
+              <td>
+                <input onClick = "clickElement(this.id)" type="checkbox" name="vegan" id="vegan"/>
+              </td>
+            </tr>
+
+            <tr class="meal">
+              <td>
+                <label for="main_course" class="meal_text">Main Course</label>
+                
+              </td>
+              <td>
+                <input onClick = "clickElement(this.id)" type="checkbox" name="main_course" id="main_course"/>
+              </td>
+            </tr>
+
+            <tr class="meal">
+              <td>
+                <label for="dessert" class="meal_text">Dessert</label>
+                
+              </td>
+              <td>
+                <input onClick = "clickElement(this.id)" type="checkbox" name="dessert" id="dessert"/>
+              </td>
+            </tr>
+          </table>
+        </div>
+        
+        <div class="all_recipe_wrapper">
+
+           <!--Meal Item (food)-->
+          <div class="all_recipe_wrapper">
+            <div class="food meal-food"  onclick="clickImage(this.id)" id="ChickenStirFry">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2020/07/Asian-chicken-stir-fry-with-spicy-mayo-h.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Chicken Stir Fry image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Chicken Stir Fry</h3>
+                <p class="time">25mins</p>
+              </div>
+            </div>
+
+            <div class="food breakfast-food" onclick="clickImage(this.id)" id="breakfastScramble">
+              <img
+                class="food-image"
+                src="https://www.flavcity.com/wp-content/uploads/2019/11/IMG_0005-40-2.jpg"
+                alt="breakfast Scramble image"
+              />
+              <div class="food-name" id="name1">
+                <h3 class="image_text">breakfast Scramble</h3>
+                <p class="time">23mins</p>
+              </div>
+            </div>
+
+            <div class="food desert-meal" onclick="clickImage(this.id)" id="KetoBrownies">
+              <img
+                class="food-image"
+                src="https://www.instrupix.com/wp-content/uploads/2019/11/easy-keto-brownies-almond-flour-recipe.jpg"
+                alt="Keto brownies image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Keto brownies</h3>
+                <p class="time">30mins</p>
+              </div>
+            </div>
+
+            <div class="food desert-meal" onclick="clickImage(this.id)" id="Cheesecake">
+              <img
+                class="food-image"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw-dutO2tptGkPiDErU_9BQRD50AWYEMZCyw&usqp=CAU"
+                alt="Cheesecake image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Cheesecake</h3>
+                <p class="time">480mins</p>
+              </div>
+            </div>
+
+            <div class="food snack-food" onclick="clickImage(this.id)" id="DevilEgg">
+              <img
+                class="food-image"
+                src="https://drivemehungry.com/wp-content/uploads/2019/06/classic-keto-deviled-eggs-7.jpg"
+                alt="Devil egg image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Devil egg</h3>
+                <p class="time">30mins</p>
+              </div>
+            </div>
+
+            <div class="food breakfast-food" onclick="clickImage(this.id)" id="EggCassarole">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2021/09/Zucchini-slice-h.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Egg Cassarole image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Egg Cassarole</h3>
+                <p class="time">40mins</p>
+              </div>
+            </div>
+
+            <div class="food breakfast-food" onclick="clickImage(this.id)" id="Mufin">
+              <img
+                class="food-image"
+                src="https://healthyfitnessmeals.com/wp-content/uploads/2018/08/instagram-In-Stream_Square___egg-muffins-1.jpg"
+                alt="Egg Mufin image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Egg Mufin</h3>
+                <p class="time">35mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="GreekSaladWithGrilledChicken">
+              <img
+                class="food-image"
+                src="https://www.foodiecrush.com/wp-content/uploads/2019/06/Greek-Salad-with-Grilled-Chicken-foodiecrush.com-005.jpg"
+                alt="Greek Salad with grilled chicken image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Greek Salad with grilled chicken</h3>
+                <p class="time">14mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="BeconCheeseBurgerWrap">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2015/08/low_carb_bacon_cheeseburger_wraps_v.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Becon Cheese Burger Wrap image"
+              />
+              <div class="food-name meal-food">
+                <h3 class="image_text">Becon Cheese Burger Wrap</h3>
+                <p class="time">30mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="KetoButterBurger">
+              <img
+                class="food-image meal-food"
+                src="https://i.dietdoctor.com/wp-content/uploads/2019/03/Butter-burgers-Jill_Wallentin_2-H.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Keto Butter Burger image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Keto Butter Burger</h3>
+                <p class="time">25mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="ZoodlePestoChickenSalad">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2020/02/Low-carb-Zoodle-Pesto-Chicken-Salad-h-lighter.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Zoodle Pesto Chicken Salad image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Zoodle Pesto Chicken Salad</h3>
+                <p class="time">10mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="KetoFriedChickenBroccoli">
+              <img
+                class="food-image"
+                src="https://whisk-res.cloudinary.com/image/upload/g_auto,g_auto,c_fill,q_60,f_auto,h_600,w_800/v1596215824/recipe/c5250a0164f6afc106f00d98f096af73.jpg"
+                alt="Keto Fried Chicken with Broccoli image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Keto Fried Chicken with Broccoli</h3>
+                <p class="time">20mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="KetoChickenEggplant">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2021/02/Keto-sheet-pan-chicken-h.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Keto Chicken and Eggplant image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Keto Chicken and Eggplant</h3>
+                <p class="time">55mins</p>
+              </div>
+            </div>
+
+            <div class="food desert-meal" onclick="clickImage(this.id)" id="EggCustard">
+              <img
+                class="food-image"
+                src="https://whisk-res.cloudinary.com/image/upload/g_auto,g_auto,c_fill,q_60,f_auto,h_600,w_800/v1600999499/recipe/39b17a38d1a51311b224ae56eb91a55c.jpg"
+                alt="Egg Custard Tart image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Egg Custard Tart</h3>
+                <p class="time">150mins</p>
+              </div>
+            </div>
+
+            <div class="food desert-meal" onclick="clickImage(this.id)" id="tiramisu">
+              <img
+                class="food-image"
+                src="http://www.fittoservegroup.com/wp-content/uploads/2017/12/easy-keto-tiramisu.jpg"
+                alt="Tiramisu image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Tiramisu</h3>
+                <p class="time">395mins</p>
+              </div>
+            </div>
+
+            <div class="food desert-meal" onclick="clickImage(this.id)" id="CinnamonRoll">
+              <img
+                class="food-image"
+                src="https://i0.wp.com/thebestketorecipes.com/wp-content/uploads/2019/09/keto-cinnamon-rolls-3.jpg?resize=720%2C720&ssl=1"
+                alt="Cinnamon Rolls image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Cinnamon Rolls</h3>
+                <p class="time">395mins</p>
+              </div>
+            </div>
+
+            <div class="food desert-meal" onclick="clickImage(this.id)" id="ChocolateChipCookies">
+              <img
+                class="food-image"
+                src="https://kirbiecravings.com/wp-content/uploads/2019/05/keto-chocolate-chip-cookies-2.jpg"
+                alt="Chocolate Chip Cookies image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Chocolate Chip Cookies</h3>
+                <p class="time">18mins</p>
+              </div>
+            </div>
+
+            <div class="food snack-food" onclick="clickImage(this.id)" id="CheeseChips">
+              <img
+                class="food-image"
+                src="https://how2doketo.com/wp-content/uploads/2019/03/Keto-Cheese-Chips-4.jpg"
+                alt="Cheese Chips image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Cheese Chips</h3>
+                <p class="time">10mins</p>
+              </div>
+            </div>
+
+            <div class="food snack-food" onclick="clickImage(this.id)" id="CheddarCheeseBalls">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2017/03/DD-393-ostbollar-2.jpg?auto=compress%2Cformat&w=1000&h=1000&fit=crop&rect=0,1179,1651,1621"
+                alt="Cheddar Cheese and becon Balls image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Cheddar Cheese and becon Balls</h3>
+                <p class="time">20mins</p>
+              </div>
+            </div>
+
+            <div class="food snack-food" onclick="clickImage(this.id)" id="salmonSandwich">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2018/05/DD-623-opensalmonsandwich-2.jpg?auto=compress%2Cformat&w=1600&h=1067&fit=crop"
+                alt="Keto Sandwich With Smoked Salmon and Horseradish Cream image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Keto Sandwich With Smoked Salmon and Horseradish Cream</h3>
+                <p class="time">15mins</p>
+              </div>
+            </div>
+
+            <div class="food snack-food" onclick="clickImage(this.id)" id="BeconWrapped">
+              <img
+                class="food-image"
+                src="https://static.wixstatic.com/media/55cc93_1fc78e07d58843048dc1c8bf3cf8e446~mv2.jpg/v1/fill/w_1000,h_962,al_c,q_90,usm_0.66_1.00_0.01/55cc93_1fc78e07d58843048dc1c8bf3cf8e446~mv2.jpg"
+                alt="Becon Wrapped Halloumi Fries image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Becon Wrapped Halloumi Fries</h3>
+                <p class="time">25mins</p>
+              </div>
+            </div>
+
+            <div class="food vegan-food" onclick="clickImage(this.id)" id="CrispyTofu">
+              <img
+                class="food-image"
+                src="https://cdn.ruled.me/wp-content/uploads/2015/03/tofubokchoysalad.jpg"
+                alt="Crispy Tofu and Bok Choy Salad image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Crispy Tofu and Bok Choy Salad</h3>
+                <p class="time">435mins</p>
+              </div>
+            </div>
+
+            <div class="food vegan-food" onclick="clickImage(this.id)" id="GrilledEggplant">
+              <img
+                class="food-image"
+                src="https://kalynskitchen.com/wp-content/uploads/2016/09/650-spicy-grilled-eggplant-kalynskitchen.jpg"
+                alt="Grilled Eggplant image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Grilled Eggplant</h3>
+                <p class="time">70mins</p>
+              </div>
+            </div>
+
+            <div class="food vegan-food" onclick="clickImage(this.id)" id="Porridge">
+              <img
+                class="food-image"
+                src="https://cdn.ruled.me/wp-content/uploads/2017/11/vegan-keto-porridge-featured.jpg"
+                alt="Keto Porridge image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Keto Porridge</h3>
+                <p class="time">14mins</p>
+              </div>
+            </div>
+
+            <div class="food meal-food" onclick="clickImage(this.id)" id="SteakBiteSalad">
+              <img
+                class="food-image"
+                src="https://i.dietdoctor.com/wp-content/uploads/2021/03/Steak-bite-salad-h.jpg?auto=compress%2Cformat&w=1600&h=1015&fit=crop"
+                alt="Steak bite Salad image"
+              />
+              <div class="food-name">
+                <h3 class="image_text">Steak bite Salad</h3>
+                <p class="time">18mins</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- NAV -->
+    <nav>
+      <ul id = "nav-links">
+        <li><i class="fas fa-home"></i><a href="home-page.html"> Home</a></li>
+        <li><i class="fas fa-user-alt"></i><a href="about-us.html"> About us</a></li>
+        <li><i class="fa-brands fa-product-hunt"></i><a href="product.html"> Products</a></li>
+        <li><i class="fa-solid fa-utensils"></i><a href="recipe.html"> Recipes</a></li>
+        <li><i class="fa-solid fa-book-open-reader"></i><a href="stories.html"> Stories</a></li>
+      </ul>
+    </nav>
+<!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <h1>𝒢𝑜𝒦𝑒𝓉𝑜</h1>
+       <div>
+          <ul class="First-table">
+            <li class="Head-Ul">About</li>
+            <li>About</li>
+            <li>Contact us</li>
+            <td>FAQ</td>
+          </ul>
+        </div>
+        <div>
+          <ul class="Second-table">
+            <li class="Head-Ul">Creator</li>
+            <li>Prieya Naraine</li>
+            <li>Kessler Lock</li>
+            <li>Muhammad Khan</li>
+            <li>Nahian Choudhury</li>
+            <li>Kyunghoon Oh</td>
+          </ul>
+        </div>
+  
+        <div>
+          <ul class="Third-table">
+            <li class="Head-Ul">Follow</li>
+            <li><i class="fab fa-instagram">&nbsp;&nbsp;</i><a href="https://www.instagram.com/ketogeniccom/">Instagram</a></li>
+            <li><i class="fab fa-facebook-square">&nbsp;&nbsp;</i><a href="https://www.facebook.com/ketogeniccom/">Facebook</a></li>
+            <li><i class="fab fa-twitter-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/ketogeniccom/">Twitter</a></li>
+            <li><i class="fab fa-youtube"></i>&nbsp;&nbsp;<a href="https://www.youtube.com/channel/UC93Mb_okxV1cn9YmfheiR2Q">Youtube</a></li>
+           </ul>
+        </div>
+      </div>
+      <p class="footer-p"> 
+        @2022GoKeto, Inc. All rights reserved. <a href="">Privacy</a> |
+        <a href="">Teams</a> | <a href="">SiteMap</a>
+      </p>
+    </footer>
+
+<!-- JS scripts -->
+    <script src="nav.js"></script>
+    <script src="recipe-info.js"></script>
+    <script src="recipe.js"></script>
+  </body>
+</html>
